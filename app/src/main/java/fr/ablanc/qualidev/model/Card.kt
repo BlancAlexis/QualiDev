@@ -1,4 +1,4 @@
 package fr.ablanc.qualidev.model
 
-class Card {
+abstract class Card(val name: String, val cardType : String ){
 }
