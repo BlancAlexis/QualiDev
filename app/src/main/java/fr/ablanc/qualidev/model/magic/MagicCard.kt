@@ -1,9 +1,14 @@
 package fr.ablanc.qualidev.model.magic
 
-data class magicCard(
-        var nommagicCard: magicCard,
-        var prixMagicCard: magicCard,
-        var forceCard: magicCard,
-        var typeMagicCard: magicCard,
-        var rareteMagicCard: magicCard
-)
+import fr.ablanc.qualidev.model.Card
+
+class MagicCard(
+        var prixMagicCard: Int,
+        var forceCard: Int,
+        var typeMagicCard: String,
+        var rareteMagicCard: String,
+        name: String,
+        cardType: String
+) : Card(name, cardType) {
+
+}
