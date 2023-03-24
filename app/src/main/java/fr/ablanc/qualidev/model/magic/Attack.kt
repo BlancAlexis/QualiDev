@@ -1,6 +1,5 @@
-package fr.ablanc.qualidev.model.pokemon
+package fr.ablanc.qualidev.model.magic
 
-import kotlin.math.cos
 
 class Attack(private var cost: Int, private var damage : Int, private var condition: String) {
     fun getCost() : Int{
