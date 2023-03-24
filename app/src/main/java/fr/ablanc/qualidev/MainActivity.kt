@@ -1,6 +1,7 @@
 package fr.ablanc.qualidev
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -10,6 +11,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import fr.ablanc.qualidev.databinding.ActivityMainBinding
+import fr.ablanc.qualidev.model.Card
+import fr.ablanc.qualidev.model.CardType
+import fr.ablanc.qualidev.model.pokemon.Attack
+import fr.ablanc.qualidev.model.pokemon.PokemonCard
+import fr.ablanc.qualidev.model.pokemon.Type
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +38,12 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+        val pikachuAttack1 = Attack(10,25,"Pikachu Attack 1");
+        val pikachuAttack2 = Attack(23,48,"Pikachu Attack 2");
+        val pikachuAttackArray = arrayOf(pikachuAttack1,pikachuAttack2);
+        val pikachu = PokemonCard(Type.Electric,12,pikachuAttackArray,"Rare", 12, "Pikachu", CardType.Pokemon);
+        Log.i("pikachu", pikachu.toString());
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
