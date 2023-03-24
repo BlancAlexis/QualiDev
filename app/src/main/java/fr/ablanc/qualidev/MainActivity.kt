@@ -10,6 +10,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import fr.ablanc.qualidev.databinding.ActivityMainBinding
 import fr.ablanc.qualidev.model.Card
 import fr.ablanc.qualidev.model.CardType
@@ -18,7 +20,7 @@ import fr.ablanc.qualidev.model.pokemon.Attack
 import fr.ablanc.qualidev.model.pokemon.PokemonCard
 import fr.ablanc.qualidev.model.pokemon.Type
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : FragmentActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -29,11 +31,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+//        setSupportActionBar(binding.toolbar)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        val navController = findNavController(R.id.nav_host_fragment_content_main)
+//        appBarConfiguration = AppBarConfiguration(navController.graph)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -53,6 +55,8 @@ class MainActivity : AppCompatActivity() {
         list.add(magicCard)
         Log.i("Taille tableau", (list.size).toString())
 
+            // binding.fab.findViewById<TextView>(R.id.txListAfterSort).setText("yoyygogfocfd")
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -71,9 +75,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        val navController = findNavController(R.id.nav_host_fragment_content_main)
+//        return navController.navigateUp(appBarConfiguration)
+//                || super.onSupportNavigateUp()
+//    }
 }
