@@ -1,9 +1,10 @@
 package fr.ablanc.qualidev
 
 import fr.ablanc.qualidev.model.Card
+import fr.ablanc.qualidev.model.CardType
 
 class CardList private constructor(){
-    private var cardList : MutableList<Card> = ArrayList<Card>();
+    protected var cardList : MutableList<Card> = ArrayList<Card>();
 
     companion object{
         private var instance : CardList? = null;
@@ -19,5 +20,17 @@ class CardList private constructor(){
         cardList.add(card);
     }
 
+    fun sortByCardType(cardList : ArrayList<Card>, firtElementType : CardType){
+        var sortedList : ArrayList<Card> = ArrayList<Card>();
+        cardList.forEach(){
+            if(it.cardType == firtElementType){
+                sortedList.add(it);
+                cardList.remove(it);
+            }
+        }
 
+        sortedList.addAll(sortedList.lastIndex + 1,cardList)
+        cardList.clear()
+        cardList.addAll(sortedList)
+    }
 }
