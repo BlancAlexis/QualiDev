@@ -2,7 +2,7 @@ package fr.ablanc.qualidev.model.pokemon
 
 import kotlin.math.cos
 
-class Attack(var cost: Int, var damage : Int, var condition: String) {
+class Attack(@JvmField var cost: Int, @JvmField var damage : Int, @JvmField var condition: String) {
     fun getCost() : Int{
         return cost;
     }
