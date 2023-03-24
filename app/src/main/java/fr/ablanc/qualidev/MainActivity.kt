@@ -44,6 +44,10 @@ class MainActivity : AppCompatActivity() {
         val pikachu = PokemonCard(Type.Electric,12,pikachuAttackArray,"Rare", 12, "Pikachu", CardType.Pokemon);
         Log.i("pikachu", pikachu.toString());
 
+        val list: MutableList<Card> = ArrayList()
+        list.add(pikachu)
+        Log.i("Taille tableau", (list.size).toString())
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
