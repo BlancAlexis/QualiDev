@@ -6,8 +6,9 @@ import fr.ablanc.qualidev.model.CardType
 class MagicCard(
         var price: Int,
         var strength: Int,
-        var type: String,
+        var type: Type,
         var rarity: String,
+        var attack: Attack,
         name: String,
         cardType: CardType
 ) : Card(name, cardType) {
