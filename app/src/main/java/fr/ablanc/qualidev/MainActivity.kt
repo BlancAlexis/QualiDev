@@ -48,10 +48,12 @@ class MainActivity : AppCompatActivity() {
         val magicCardAttack = fr.ablanc.qualidev.model.magic.Attack(12,23,"Magic Card Attack 1");
         val magicCard = MagicCard(10,45,fr.ablanc.qualidev.model.magic.Type.Vanguard,"Normal", magicCardAttack,"MagicCard", CardType.Magic);
 
-        val list: MutableList<Card> = ArrayList()
-        list.add(pikachu)
-        list.add(magicCard)
-        Log.i("Taille tableau", (list.size).toString())
+        val cardList = CardList.getInstance();
+        cardList.add(magicCard)
+        cardList.add(pikachu)
+        cardList.display()
+        cardList.sortByCardType(CardType.Pokemon)
+        cardList.display()
 
     }
 

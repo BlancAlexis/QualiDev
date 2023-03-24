@@ -1,5 +1,6 @@
 package fr.ablanc.qualidev
 
+import android.util.Log
 import fr.ablanc.qualidev.model.Card
 import fr.ablanc.qualidev.model.CardType
 
@@ -20,7 +21,7 @@ class CardList private constructor(){
         cardList.add(card);
     }
 
-    fun sortByCardType(cardList : ArrayList<Card>, firtElementType : CardType){
+    fun sortByCardType(firtElementType : CardType){
         var sortedList : ArrayList<Card> = ArrayList<Card>();
         cardList.forEach(){
             if(it.cardType == firtElementType){
@@ -28,9 +29,14 @@ class CardList private constructor(){
                 cardList.remove(it);
             }
         }
-
         sortedList.addAll(sortedList.lastIndex + 1,cardList)
         cardList.clear()
         cardList.addAll(sortedList)
+    }
+
+    fun display(){
+        cardList.forEach(){
+            Log.i("display", it.toString())
+        }
     }
 }
