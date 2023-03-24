@@ -10,5 +10,7 @@ class MagicCard(
         name: String,
         cardType: String
 ) : Card(name, cardType) {
-
+        override fun toString(): String {
+                return "MagicCard(prixMagicCard=$prixMagicCard, forceCard=$forceCard, typeMagicCard='$typeMagicCard', rareteMagicCard='$rareteMagicCard')"
+        }
 }
