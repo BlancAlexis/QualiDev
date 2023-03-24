@@ -1,5 +1,23 @@
 package fr.ablanc.qualidev.model.pokemon
 
 enum class Type {
-Plante,Feu,Eau,Eclair,Psy,Combat,Obscurite,Metal,Fee,Dragon,Incolore
+    Bug,
+    Dark,
+    Dragon,
+    Electric,
+    Fairy,
+    Fire,
+    Fighting,
+    Flying,
+    Ghost,
+    Grass,
+    Ground,
+    Ice,
+    Normal,
+    Poison,
+    Psychic,
+    Rock,
+    Steel,
+    Water,
+
 }
