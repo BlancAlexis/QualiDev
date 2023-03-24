@@ -1,4 +1,6 @@
-package fr.ablanc.qualidev.model.pokemon
+package fr.ablanc.qualidev.model.magic
+
+
 class Attack(private var cost: Int, private var damage : Int, private var condition: String) {
     fun getCost() : Int{
         return cost;
