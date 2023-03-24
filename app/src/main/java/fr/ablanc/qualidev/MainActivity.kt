@@ -67,4 +67,18 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+
+    fun sortByCardType(cardList : ArrayList<Card>, firtElementType : CardType) : ArrayList<Card>{
+        var sortedList : ArrayList<Card> = ArrayList<Card>();
+        cardList.forEach(){
+            if(it.cardType == firtElementType){
+                sortedList.add(it);
+                cardList.remove(it);
+            }
+        }
+
+        sortedList.addAll(sortedList.lastIndex + 1,cardList);
+
+        return sortedList;
+    }
 }
