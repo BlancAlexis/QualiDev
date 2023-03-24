@@ -1,6 +1,7 @@
 package fr.ablanc.qualidev.model.magic
 
 import fr.ablanc.qualidev.model.Card
+import fr.ablanc.qualidev.model.CardType
 
 class MagicCard(
         var price: Int,
@@ -8,7 +9,7 @@ class MagicCard(
         var type: String,
         var rarity: String,
         name: String,
-        cardType: String
+        cardType: CardType
 ) : Card(name, cardType) {
         override fun toString(): String {
                 return "MagicCard(prixMagicCard=$price, forceCard=$strength, typeMagicCard='$type', rareteMagicCard='$rarity')"
