@@ -13,6 +13,7 @@ import android.view.MenuItem
 import fr.ablanc.qualidev.databinding.ActivityMainBinding
 import fr.ablanc.qualidev.model.Card
 import fr.ablanc.qualidev.model.CardType
+import fr.ablanc.qualidev.model.magic.MagicCard
 import fr.ablanc.qualidev.model.pokemon.Attack
 import fr.ablanc.qualidev.model.pokemon.PokemonCard
 import fr.ablanc.qualidev.model.pokemon.Type
@@ -44,8 +45,12 @@ class MainActivity : AppCompatActivity() {
         val pikachu = PokemonCard(Type.Electric,12,pikachuAttackArray,"Rare", 12, "Pikachu", CardType.Pokemon);
         Log.i("pikachu", pikachu.toString());
 
+        val magicCardAttack = fr.ablanc.qualidev.model.magic.Attack(12,23,"Magic Card Attack 1");
+        val magicCard = MagicCard(10,45,fr.ablanc.qualidev.model.magic.Type.Vanguard,"Normal", magicCardAttack,"MagicCard", CardType.Magic);
+
         val list: MutableList<Card> = ArrayList()
         list.add(pikachu)
+        list.add(magicCard)
         Log.i("Taille tableau", (list.size).toString())
 
     }
