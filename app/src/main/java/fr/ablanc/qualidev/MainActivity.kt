@@ -10,8 +10,6 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
 import fr.ablanc.qualidev.databinding.ActivityMainBinding
 import fr.ablanc.qualidev.model.Card
 import fr.ablanc.qualidev.model.CardType
@@ -20,7 +18,7 @@ import fr.ablanc.qualidev.model.pokemon.Attack
 import fr.ablanc.qualidev.model.pokemon.PokemonCard
 import fr.ablanc.qualidev.model.pokemon.Type
 
-class MainActivity : FragmentActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -31,11 +29,11 @@ class MainActivity : FragmentActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(binding.toolbar)
 
-//        val navController = findNavController(R.id.nav_host_fragment_content_main)
-//        appBarConfiguration = AppBarConfiguration(navController.graph)
-//        setupActionBarWithNavController(navController, appBarConfiguration)
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        appBarConfiguration = AppBarConfiguration(navController.graph)
+        setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -50,12 +48,12 @@ class MainActivity : FragmentActivity() {
         val magicCardAttack = fr.ablanc.qualidev.model.magic.Attack(12,23,"Magic Card Attack 1");
         val magicCard = MagicCard(10,45,fr.ablanc.qualidev.model.magic.Type.Vanguard,"Normal", magicCardAttack,"MagicCard", CardType.Magic);
 
-        val list: MutableList<Card> = ArrayList()
-        list.add(pikachu)
-        list.add(magicCard)
-        Log.i("Taille tableau", (list.size).toString())
-
-            // binding.fab.findViewById<TextView>(R.id.txListAfterSort).setText("yoyygogfocfd")
+        val cardList = CardList.getInstance();
+        cardList.add(magicCard)
+        cardList.add(pikachu)
+        cardList.display()
+        cardList.sortByCardType(CardType.Pokemon)
+        cardList.display()
 
     }
 
@@ -75,9 +73,23 @@ class MainActivity : FragmentActivity() {
         }
     }
 
-//    override fun onSupportNavigateUp(): Boolean {
-//        val navController = findNavController(R.id.nav_host_fragment_content_main)
-//        return navController.navigateUp(appBarConfiguration)
-//                || super.onSupportNavigateUp()
-//    }
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        return navController.navigateUp(appBarConfiguration)
+                || super.onSupportNavigateUp()
+    }
+
+    fun sortByCardType(cardList : ArrayList<Card>, firtElementType : CardType) : ArrayList<Card>{
+        var sortedList : ArrayList<Card> = ArrayList<Card>();
+        cardList.forEach(){
+            if(it.cardType == firtElementType){
+                sortedList.add(it);
+                cardList.remove(it);
+            }
+        }
+
+        sortedList.addAll(sortedList.lastIndex + 1,cardList);
+
+        return sortedList;
+    }
 }
