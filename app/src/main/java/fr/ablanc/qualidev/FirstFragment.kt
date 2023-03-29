@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import fr.ablanc.qualidev.databinding.FragmentFirstBinding
@@ -33,15 +35,25 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.txListAfterSort.text = "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        binding.txtListBeforeSort.text = "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
 
 
         val vm = ViewModelProvider(requireActivity()).get(MainVM::class.java)
-
         vm.getData()
+vm.updateWord()
+        val nameObserver = Observer<String> { newName ->
+            binding.txtListBeforeSort.text = newName
 
+        }
+
+        // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
+      //  vm.currentName.observe(this, nameObserver)
+        vm.word.observe(viewLifecycleOwner,nameObserver)
 
 
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

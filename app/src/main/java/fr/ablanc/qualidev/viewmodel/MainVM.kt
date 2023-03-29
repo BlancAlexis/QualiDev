@@ -1,6 +1,7 @@
 package fr.ablanc.qualidev.viewmodel
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import fr.ablanc.qualidev.FirstFragment
@@ -13,6 +14,14 @@ import fr.ablanc.qualidev.model.pokemon.Type
 import kotlinx.coroutines.launch
 
 class MainVM : ViewModel() {
+
+    val word : MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
+
+    fun updateWord(){
+        word.postValue("Itt's work!")
+    }
 
     fun getData() {
 
