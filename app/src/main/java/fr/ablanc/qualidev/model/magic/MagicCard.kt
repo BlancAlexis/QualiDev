@@ -13,6 +13,6 @@ class MagicCard(
         cardType: CardType
 ) : Card(name, cardType) {
         override fun toString(): String {
-                return super.toString()+"MagicCard(prixMagicCard=$price, forceCard=$strength, typeMagicCard='$type', rareteMagicCard='$rarity')"
+                return super.toString()+"prix=$price, force=$strength, type=$type, rarete=$rarity \n"
         }
 }

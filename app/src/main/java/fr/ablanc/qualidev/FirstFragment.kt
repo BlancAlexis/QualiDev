@@ -37,7 +37,7 @@ class FirstFragment : Fragment() {
 
 
         val vm = ViewModelProvider(requireActivity()).get(MainVM::class.java)
-        vm.getData()
+
 
         val nameObserver = Observer<String> { newName ->
             binding.txtListBeforeSort.text = newName
@@ -48,7 +48,7 @@ class FirstFragment : Fragment() {
       //  vm.currentName.observe(this, nameObserver)
         vm.word.observe(viewLifecycleOwner,nameObserver)
 
-
+        vm.getData()
     }
 
 
