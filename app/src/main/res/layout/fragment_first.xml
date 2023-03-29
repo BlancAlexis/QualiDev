@@ -7,22 +7,41 @@
     tools:context=".FirstFragment">
 
     <TextView
-        android:id="@+id/textview_first"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/txtListBeforeSort"
+        android:layout_width="265dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="44dp"
         android:text="@string/hello_first_fragment"
-        app:layout_constraintBottom_toTopOf="@id/button_first"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_first"
+    <TextView
+        android:id="@+id/txListAfterSort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="263dp"
+        android:text="@string/hello_first_fragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_first" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSortList" />
+
+    <Button
+        android:id="@+id/btnSortList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="106dp"
+        android:text="@string/next"
+        app:layout_constraintBottom_toTopOf="@+id/txListAfterSort"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtListBeforeSort" />
 </androidx.constraintlayout.widget.ConstraintLayout>
