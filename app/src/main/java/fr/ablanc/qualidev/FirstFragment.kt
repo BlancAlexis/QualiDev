@@ -5,10 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import fr.ablanc.qualidev.databinding.FragmentFirstBinding
 import fr.ablanc.qualidev.viewmodel.MainVM
 
@@ -16,7 +14,7 @@ import fr.ablanc.qualidev.viewmodel.MainVM
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class FirstFragment : Fragment() {
-
+    //private Button button
     private var _binding: FragmentFirstBinding? = null
 
     // This property is only valid between onCreateView and
@@ -27,7 +25,6 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -35,13 +32,13 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.txListAfterSort.text = "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        binding.btnSortList.setOnClickListener(View.OnClickListener { binding.txtListAfterSort.text=binding.txtListBeforeSort.text })
         binding.txtListBeforeSort.text = "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
 
 
         val vm = ViewModelProvider(requireActivity()).get(MainVM::class.java)
         vm.getData()
-vm.updateWord()
+
         val nameObserver = Observer<String> { newName ->
             binding.txtListBeforeSort.text = newName
 
@@ -53,6 +50,7 @@ vm.updateWord()
 
 
     }
+
 
 
     override fun onDestroyView() {
