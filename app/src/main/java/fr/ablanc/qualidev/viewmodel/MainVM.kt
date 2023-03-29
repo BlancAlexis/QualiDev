@@ -15,34 +15,53 @@ import kotlinx.coroutines.launch
 
 class MainVM : ViewModel() {
 
-    val word : MutableLiveData<String> by lazy {
+    val word: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
 
-    fun updateWord(){
-        word.postValue("Itt's work!")
-    }
+//    fun updateWord() {
+//        word.postValue(text)
+//    }
 
     fun getData() {
-
+        var temps = ""
         viewModelScope.launch {
-            val pikachuAttack1 = Attack(10,25,"Pikachu Attack 1");
-            val pikachuAttack2 = Attack(23,48,"Pikachu Attack 2");
-            val pikachuAttackArray = arrayOf(pikachuAttack1,pikachuAttack2);
-            val pikachu = PokemonCard(Type.Electric,12,pikachuAttackArray,"Rare", 12, "Pikachu", CardType.Pokemon);
+            val pikachuAttack1 = Attack(10, 25, "Pikachu Attack 1");
+            val pikachuAttack2 = Attack(23, 48, "Pikachu Attack 2");
+            val pikachuAttackArray = arrayOf(pikachuAttack1, pikachuAttack2);
+            val pikachu = PokemonCard(
+                Type.Electric,
+                12,
+                pikachuAttackArray,
+                "Rare",
+                12,
+                "Pikachu",
+                CardType.Pokemon
+            );
             Log.i("pikachu", pikachu.toString());
 
-            val magicCardAttack = fr.ablanc.qualidev.model.magic.Attack(12,23,"Magic Card Attack 1");
-            val magicCard = MagicCard(10,45,fr.ablanc.qualidev.model.magic.Type.Vanguard,"Normal", magicCardAttack,"MagicCard", CardType.Magic);
+            val magicCardAttack =
+                fr.ablanc.qualidev.model.magic.Attack(12, 23, "Magic Card Attack 1");
+            val magicCard = MagicCard(
+                10,
+                45,
+                fr.ablanc.qualidev.model.magic.Type.Vanguard,
+                "Normal",
+                magicCardAttack,
+                "MagicCard",
+                CardType.Magic
+            );
 
             val list: MutableList<Card> = ArrayList()
             list.add(pikachu)
             list.add(magicCard)
             Log.i("Taille tableau", (list.size).toString())
 
-
+            for (cards in list) {
+                temps += cards.toString()
+            }
         }
-
+        word.postValue(temps)
     }
 
 
