@@ -71,11 +71,7 @@ h
 8app/src/main/java/fr/ablanc/qualidev/model/magic/Type.kt,1\1\115d18e5996b99bce5e52cc93b15f0d4e912a851
 j
 :app/src/main/java/fr/ablanc/qualidev/model/magic/Attack.kt,1\6\1655587a0492f641605ae48fd29700bf45cc2df1
-d
-4app/src/main/java/fr/ablanc/qualidev/MainActivity.kt,a\8\a82810d2c613e11cbdaddfce1521e6be96e4c224
 h
 8app/src/main/java/fr/ablanc/qualidev/viewmodel/MainVM.kt,4\e\4ee6d85b3d500fae937eecc88c4dbbde12b8d512
-e
-5app/src/main/java/fr/ablanc/qualidev/FirstFragment.kt,3\9\39c8dd24d6528a2cc315149744c3e0e803aec4dc
 b
 2app/src/main/java/fr/ablanc/qualidev/model/Card.kt,7\b\7ba2fef64ed5b8abff842de80f010446c6448460

@@ -32,21 +32,26 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnSortList.setOnClickListener(View.OnClickListener { binding.txtListAfterSort.text=binding.txtListBeforeSort.text })
-        binding.txtListBeforeSort.text = "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+
 
 
         val vm = ViewModelProvider(requireActivity()).get(MainVM::class.java)
 
+        binding.btnSortList.setOnClickListener(View.OnClickListener {
+            vm.sortListCard()
+        })
 
-        val nameObserver = Observer<String> { newName ->
+        val listAfterSortObserver= Observer<String> { listAfterSort ->
+            binding.txtListAfterSort.text = listAfterSort }
+
+        val listCard = Observer<String> { newName ->
             binding.txtListBeforeSort.text = newName
-
         }
 
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
-      //  vm.currentName.observe(this, nameObserver)
-        vm.word.observe(viewLifecycleOwner,nameObserver)
+        //  vm.currentName.observe(this, nameObserver)
+        vm.word.observe(viewLifecycleOwner,listCard)
+        vm.word.observe(viewLifecycleOwner,listAfterSortObserver)
 
         vm.getData()
     }
