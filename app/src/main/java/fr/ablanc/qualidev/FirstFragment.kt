@@ -33,7 +33,6 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSortList.setOnClickListener(View.OnClickListener { binding.txtListAfterSort.text=binding.txtListBeforeSort.text })
-        binding.txtListBeforeSort.text = "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
 
 
         val vm = ViewModelProvider(requireActivity()).get(MainVM::class.java)
