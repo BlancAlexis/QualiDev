@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import fr.ablanc.qualidev.CardList
 import fr.ablanc.qualidev.FirstFragment
 import fr.ablanc.qualidev.model.Card
 import fr.ablanc.qualidev.model.CardType
@@ -24,7 +25,6 @@ class MainVM : ViewModel() {
 //    }
 
     fun getData() {
-        var temps = ""
         viewModelScope.launch {
             val pikachuAttack1 = Attack(10, 25, "Pikachu Attack 1");
             val pikachuAttack2 = Attack(23, 48, "Pikachu Attack 2");
@@ -57,11 +57,11 @@ class MainVM : ViewModel() {
             list.add(magicCard)
             Log.i("Taille tableau", (list.size).toString())
 
-            for (cards in list) {
-                temps += cards.toString()
-            }
+            CardList.getInstance().add(pikachu)
+            CardList.getInstance().add(magicCard)
+
         }
-        word.postValue(temps)
+        word.postValue(CardList.getInstance().display())
     }
 
 

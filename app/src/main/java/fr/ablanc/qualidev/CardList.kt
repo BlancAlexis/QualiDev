@@ -34,9 +34,11 @@ class CardList private constructor(){
         cardList.addAll(sortedList)
     }
 
-    fun display(){
-        cardList.forEach(){
-            Log.i("display", it.toString())
+    fun display(): String{
+        var temp=""
+     for (Card in cardList){
+         temp+=Card.toString()
         }
+        return temp
     }
 }
