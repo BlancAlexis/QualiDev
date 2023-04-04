@@ -13,6 +13,6 @@ class PokemonCard(
         cardType: CardType
 ) : Card(name, cardType) {
     override fun toString(): String {
-        return "PokemonCard(name= $name,type='$type', hp=$hp, attack=${attack.contentToString()}, rarity='$rarity', level=$level)"
+        return super.toString()+" de type=$type, hp=$hp, rarity='$rarity', level=$level. \n"
     }
 }
