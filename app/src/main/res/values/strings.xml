@@ -9,4 +9,10 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="input_nom">Nom</string>
+    <string name="input_type_de_pokemon">Type de Pokémon:</string>
+    <string-array name="choiceCard">
+        <item>Pokemon</item>
+        <item>Magic</item>
+    </string-array>
 </resources>

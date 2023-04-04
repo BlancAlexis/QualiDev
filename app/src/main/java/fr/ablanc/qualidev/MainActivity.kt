@@ -19,10 +19,10 @@ import fr.ablanc.qualidev.model.magic.MagicCard
 import fr.ablanc.qualidev.model.pokemon.Attack
 import fr.ablanc.qualidev.model.pokemon.PokemonCard
 import fr.ablanc.qualidev.model.pokemon.Type
+import fr.ablanc.qualidev.tests.Test
 
 class MainActivity : FragmentActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,32 +30,9 @@ class MainActivity : FragmentActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val test = Test();
 
-//        setSupportActionBar(binding.toolbar)
-
-//        val navController = findNavController(R.id.nav_host_fragment_content_main)
-//        appBarConfiguration = AppBarConfiguration(navController.graph)
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-        val pikachuAttack1 = Attack(10,25,"Pikachu Attack 1");
-        val pikachuAttack2 = Attack(23,48,"Pikachu Attack 2");
-        val pikachuAttackArray = arrayOf(pikachuAttack1,pikachuAttack2);
-        val pikachu = PokemonCard(Type.Electric,12,pikachuAttackArray,"Rare", 12, "Pikachu", CardType.Pokemon);
-        Log.i("pikachu", pikachu.toString());
-
-        val magicCardAttack = fr.ablanc.qualidev.model.magic.Attack(12,23,"Magic Card Attack 1");
-        val magicCard = MagicCard(10,45,fr.ablanc.qualidev.model.magic.Type.Vanguard,"Normal", magicCardAttack,"MagicCard", CardType.Magic);
-
-        val list: MutableList<Card> = ArrayList()
-        list.add(pikachu)
-        list.add(magicCard)
-        Log.i("Taille tableau", (list.size).toString())
-
-        // binding.fab.findViewById<TextView>(R.id.txListAfterSort).setText("yoyygogfocfd")
+        test.run()
 
     }
 
@@ -75,9 +52,4 @@ class MainActivity : FragmentActivity() {
         }
     }
 
-//    override fun onSupportNavigateUp(): Boolean {
-//        val navController = findNavController(R.id.nav_host_fragment_content_main)
-//        return navController.navigateUp(appBarConfiguration)
-//                || super.onSupportNavigateUp()
-//    }
 }
