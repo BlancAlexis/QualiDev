@@ -23,8 +23,11 @@ class MainVM : ViewModel() {
 //    fun updateWord() {
 //        word.postValue(text)
 //    }
+fun getData(){
+    word.postValue(CardList.getInstance().display())
 
-    fun getData() {
+}
+    fun importData() {
         viewModelScope.launch {
             val pikachuAttack1 = Attack(10, 25, "Pikachu Attack 1");
             val pikachuAttack2 = Attack(23, 48, "Pikachu Attack 2");
@@ -61,8 +64,5 @@ class MainVM : ViewModel() {
             CardList.getInstance().add(magicCard)
 
         }
-        word.postValue(CardList.getInstance().display())
     }
-
-
 }
