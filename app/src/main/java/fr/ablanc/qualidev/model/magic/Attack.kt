@@ -1,7 +1,7 @@
 package fr.ablanc.qualidev.model.magic
 
 
-class Attack(private var cost: Int, private var damage : Int, private var condition: String) {
+class Attack(private var cost: Int, private var damage: Int, private var condition: String) {
     fun getCost() : Int{
         return cost;
     }

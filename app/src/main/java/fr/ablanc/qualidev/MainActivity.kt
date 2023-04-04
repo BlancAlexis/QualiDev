@@ -19,6 +19,7 @@ import fr.ablanc.qualidev.model.magic.MagicCard
 import fr.ablanc.qualidev.model.pokemon.Attack
 import fr.ablanc.qualidev.model.pokemon.PokemonCard
 import fr.ablanc.qualidev.model.pokemon.Type
+import fr.ablanc.qualidev.tests.Test
 
 class MainActivity : FragmentActivity() {
 
@@ -29,7 +30,9 @@ class MainActivity : FragmentActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val test = Test();
 
+        test.run()
 
     }
 
