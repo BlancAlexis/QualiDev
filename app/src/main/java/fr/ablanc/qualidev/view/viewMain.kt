@@ -13,7 +13,7 @@ import fr.ablanc.qualidev.viewmodel.MainVM
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class viewMain : Fragment() {
     //private Button button
     private var _binding: FragmentFirstBinding? = null
 
@@ -32,16 +32,10 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.btnSortList.setOnClickListener(View.OnClickListener { binding.txtListAfterSort.text=binding.txtListBeforeSort.text })
-
-
-
         val vm = ViewModelProvider(requireActivity()).get(MainVM::class.java)
 
-        binding.btnSortList.setOnClickListener(View.OnClickListener {
-           // vm.sortListCard()
-        })
+        binding.btnSortList.setOnClickListener(View.OnClickListener { vm.sortListCard()})
+
 
         val listAfterSortObserver= Observer<String> { listAfterSort ->
             binding.txtListAfterSort.text = listAfterSort }
@@ -52,10 +46,9 @@ class FirstFragment : Fragment() {
 
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
         //  vm.currentName.observe(this, nameObserver)
-        vm.word.observe(viewLifecycleOwner,listCard)
-        vm.word.observe(viewLifecycleOwner,listAfterSortObserver)
+        vm.list.observe(viewLifecycleOwner,listCard)
+        vm.listAfterSort.observe(viewLifecycleOwner,listAfterSortObserver)
 
-        vm.getData()
     }
 
 

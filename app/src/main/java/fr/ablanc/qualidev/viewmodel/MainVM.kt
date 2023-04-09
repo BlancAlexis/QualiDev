@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import fr.ablanc.qualidev.CardList
-import fr.ablanc.qualidev.FirstFragment
 import fr.ablanc.qualidev.model.Card
 import fr.ablanc.qualidev.model.CardType
 import fr.ablanc.qualidev.model.magic.MagicCard
@@ -15,18 +14,23 @@ import fr.ablanc.qualidev.model.pokemon.Type
 import kotlinx.coroutines.launch
 
 class MainVM : ViewModel() {
+    val list = MutableLiveData<String>(null)
+    val listAfterSort = MutableLiveData<String>(null)
 
-    val word: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
+    init {
+     importData()
     }
 
-//    fun updateWord() {
-//        word.postValue(text)
-//    }
-fun getData(){
-    word.postValue(CardList.getInstance().display())
 
-}
+    fun updateList(){
+        list.postValue(CardList.getInstance().display())
+
+    }
+    fun updateListAfterSort(display: CardList) {
+        listAfterSort.postValue(CardList.getInstance().display())
+
+    }
+
     fun importData() {
         viewModelScope.launch {
             val pikachuAttack1 = Attack(10, 25, "Pikachu Attack 1");
@@ -63,6 +67,12 @@ fun getData(){
             CardList.getInstance().add(pikachu)
             CardList.getInstance().add(magicCard)
 
+            updateList()
         }
+    }
+    fun sortListCard(){
+        CardList.getInstance().sortByCardType(CardType.Magic)
+        updateListAfterSort(CardList.getInstance())
+
     }
 }
