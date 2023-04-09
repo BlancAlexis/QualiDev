@@ -1,4 +1,4 @@
-package fr.ablanc.qualidev
+package fr.ablanc.qualidev.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
