@@ -14,11 +14,9 @@ import fr.ablanc.qualidev.viewmodel.MainVM
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class viewMain : Fragment() {
-    //private Button button
     private var _binding: FragmentFirstBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -44,8 +42,6 @@ class viewMain : Fragment() {
             binding.txtListBeforeSort.text = newName
         }
 
-        // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
-        //  vm.currentName.observe(this, nameObserver)
         vm.list.observe(viewLifecycleOwner,listCard)
         vm.listAfterSort.observe(viewLifecycleOwner,listAfterSortObserver)
 

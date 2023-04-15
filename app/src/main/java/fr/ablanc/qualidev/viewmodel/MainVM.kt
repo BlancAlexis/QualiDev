@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import fr.ablanc.qualidev.CardList
-import fr.ablanc.qualidev.model.Card
 import fr.ablanc.qualidev.model.CardType
 import fr.ablanc.qualidev.model.magic.MagicCard
 import fr.ablanc.qualidev.model.pokemon.Attack
@@ -81,7 +80,7 @@ class MainVM : ViewModel() {
         }
     }
     fun sortListCard(){
-        CardList.getInstance().sortByPokemon()
+        CardList.getInstance().sortByPokemonUp5Damage()
         updateListAfterSort(CardList.getInstance())
 
     }
